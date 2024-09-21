@@ -1,0 +1,497 @@
+/* Reset básico */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Estilos básicos do corpo */
+body {
+  font-family: "Roboto", sans-serif;
+  background: radial-gradient(circle at 50% 50%, #ab0100, #a80100, #570101);
+  color: #ff3131;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 10px;
+  padding-bottom: 250px; /* Espaço para o rodapé fixo */
+  overflow-y: auto; /* Permite a rolagem vertical */
+  height: auto; /* Ajusta a altura conforme o conteúdo */
+}
+
+/* Estilo específico para a cor de fundo da barra de status em dispositivos móveis */
+@media (max-width: 600px) {
+  .modal-content {
+    width: 95%; /* Quase toda a largura da tela */
+    max-height: 90vh; /* Quase toda a altura da tela */
+  }
+
+  /* Outras customizações para telas menores */
+  h1 {
+    font-size: 1.5rem; /* Ajusta o tamanho do título em dispositivos móveis */
+    margin-bottom: 10px; /* Espaçamento reduzido abaixo do título */
+  }
+
+  .image-button img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .modal-content {
+    width: 90%; /* Ajusta a largura dos modais em telas menores */
+  }
+
+  button.submit {
+    font-size: 0.9rem;
+    padding: 8px 16px;
+  }
+
+  .ingredient-list {
+    max-height: none; /* Remove a limitação de altura em telas menores */
+    padding: 8px;
+  }
+
+  label {
+    font-size: 0.85rem;
+  }
+
+  label input[type="checkbox"] {
+    transform: scale(0.8);
+  }
+
+  /* Ajustes para o campo de nome em mobile */
+  input[type="text"] {
+    padding: 10px 16px;
+    font-size: 1rem;
+  }
+}
+
+/* Estilos do cabeçalho */
+header {
+  text-align: center;
+  width: 300px; /* Largura padrão do cabeçalho */
+  height: 300px; /* Altura proporcional à largura */
+  margin-bottom: 20px;
+  margin-top: 0;
+  padding-top: 0;
+  border-radius: 50%; /* Mantém o cabeçalho redondo */
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  user-select: none; /* Impede a seleção do cabeçalho */
+}
+
+/* Estilos para o container principal */
+.container {
+  text-align: center;
+  width: 80%;
+  max-width: 600px; /* Define uma largura máxima para o container */
+  height: auto; /* Ajusta a altura do container conforme o conteúdo */
+}
+
+/* Estilos do título */
+h1 {
+  font-size: 2rem; /* Aumenta o tamanho da fonte para maior impacto */
+  font-weight: 700; /* Mantém o peso da fonte em negrito */
+  letter-spacing: 0.5px; /* Leve espaçamento entre letras para melhor legibilidade */
+  margin-bottom: 25px; /* Aumenta o espaço abaixo do título */
+  color: #ffffff; /* Cor de fallback para navegadores que não suportam background-clip */
+  background: linear-gradient(135deg, #ffffff, #cecece); /* Gradiente suave */
+  -webkit-background-clip: text; /* Aplica o gradiente ao texto (Chrome, Safari) */
+  background-clip: text; /* Aplica o gradiente ao texto (Firefox) */
+  -webkit-text-fill-color: transparent; /* Torna o texto transparente (Chrome, Safari) */
+  font-family: "Montserrat", sans-serif; /* Fonte padrão */
+  display: inline-block; /* Necessário para o clipping */
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4); /* Sombra do texto para maior profundidade */
+  text-align: center; /* Centraliza o título */
+  line-height: 2; /* Melhora a legibilidade aumentando a altura da linha */
+  max-width: 100%; /* Limita a largura do título em telas pequenas */
+  margin: 0 auto; /* Centraliza o título horizontalmente */
+}
+
+/* Efeitos de transição suave ao passar o mouse */
+h1:hover {
+  transform: translateY(-2px); /* Leve movimento para cima ao passar o mouse */
+  transition: transform 0.3s ease; /* Transição suave */
+}
+
+/* Estilo das opções de pastéis */
+.pastel-options {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
+  gap: 15px;
+}
+
+/* Ajustes para os botões das imagens */
+.image-button {
+  border: none;
+  background: none;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+}
+
+.image-button img {
+  width: 100px;
+  height: 100px;
+  object-fit: cover;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+}
+
+.image-button:hover img {
+  transform: scale(1.05);
+  box-shadow: 0 6px 12px rgba(255, 255, 255, 0.2);
+}
+
+/* Estilos dos modais */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(
+    0,
+    0,
+    0,
+    0.7
+  ); /* Cor de fundo escura e semi-transparente */
+}
+
+/* Estilo futurista e neon para o conteúdo do modal */
+.modal-content {
+  background-color: #570101; /* Fundo escuro para estilo futurista */
+  margin: 5% auto;
+  padding: 20px;
+  border: 2px solid rgb(255, 255, 255); /* Borda neon */
+  border-radius: 30px;
+  width: 80%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 0 20px rgb(255, 255, 255), 0 0 30px rgb(255, 255, 255),
+    0 0 40px #570101; /* Efeito de brilho neon */
+
+  /* Adicionando animação de fade-in */
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Estilo dos títulos no modal */
+.modal h2 {
+  font-size: 15px;
+  margin-bottom: 20px;
+  color: rgb(255, 255, 255); /* Cor neon para o título */
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px; /* Espaçamento entre letras para um toque mais futurista */
+}
+
+/* Estilo de botões dentro do modal */
+.modal button {
+  background-color: #0ff;
+  color: #1b1b1b;
+  border: none;
+  padding: 10px 20px;
+  cursor: pointer;
+  border-radius: 25px;
+  font-size: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.modal button:hover {
+  background-color: #00e6e6; /* Cor mais clara ao passar o mouse */
+}
+
+/* Estilo para o botão de fechar */
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+/* Estilo da barra de ingredientes com rolagem */
+.ingredient-list {
+  display: flex;
+  flex-direction: column;
+  max-height: 300px; /* Limita a altura da barra de ingredientes */
+  overflow-y: auto; /* Adiciona rolagem vertical à barra de ingredientes */
+  padding: 10px;
+  border-radius: 15px; /* Arredondamento das bordas */
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.1
+  ); /* Fundo mais claro com transparência */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra mais escura para visibilidade */
+}
+
+.ingredient-list h3 {
+  text-transform: uppercase;
+  color: #ffffff; /* Cor dos títulos dos ingredientes */
+  font-size: 1.1rem;
+  margin-bottom: 10px;
+}
+
+.ingredient-list label {
+  text-transform: uppercase; /* Coloca o texto dos ingredientes em maiúsculas */
+  margin-bottom: 5px; /* Espaço entre as opções de ingredientes */
+}
+
+/* Estilo dos rótulos e checkboxes */
+label {
+  display: flex;
+  align-items: center;
+  font-size: 0.9rem;
+  color: #ffffff; /* Cor personalizada para o texto dos ingredientes */
+  margin-bottom: 5px; /* Espaço entre as opções de ingredientes */
+}
+
+label input[type="checkbox"] {
+  margin-right: 8px;
+  transform: scale(0.9);
+}
+
+input[type="checkbox"] {
+  accent-color: #ff6f61;
+}
+
+/* Estilos dos botões de confirmação */
+button.submit {
+  background: radial-gradient(circle at 50% 50%, #ab0100, #a80100, #570101);
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  margin-top: 20px;
+  width: 100%;
+}
+
+button.submit:hover {
+  background-color: #ff4c39;
+}
+
+/* Animação para o modal */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-10%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Estilos do modal do carrinho */
+#cartModal {
+  display: none;
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro mais futurista */
+  overflow: hidden;
+}
+
+/* Estilo futurista e neon para o conteúdo do modal do carrinho */
+#cartModal .modal-content {
+  background-color: #1b1b1b; /* Fundo escuro para estilo futurista */
+  margin: 5% auto;
+  padding: 20px;
+  border: 2px solid rgb(255, 255, 255); /* Borda neon */
+  border-radius: 30px;
+  width: 80%;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: 0 0 20px rgb(255, 255, 255), 0 0 30px rgb(255, 255, 255),
+    0 0 40px #570101; /* Efeito de brilho neon */
+
+  /* Adicionando animação de fade-in */
+  animation: fadeIn 0.3s ease-out;
+}
+
+/* Estilo para o título do modal do carrinho */
+#cartModal h2 {
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: rgb(255, 255, 255); /* Cor neon para o título */
+  text-align: center;
+  text-transform: uppercase;
+  letter-spacing: 3px; /* Estilo futurista */
+}
+
+/* Estilo futurista para os itens do carrinho */
+#cartItems {
+  background-color: rgba(
+    0,
+    255,
+    255,
+    0.1
+  ); /* Fundo neon levemente transparente */
+  border-radius: 15px;
+  padding: 20px;
+  margin-bottom: 20px;
+  color: #0ff; /* Cor neon */
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2); /* Sombra neon */
+}
+
+/* Estilo futurista para os itens individuais do carrinho */
+.cart-item {
+  background-color: #570101;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  padding: 15px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+  color: rgb(255, 255, 255); /* Cor neon */
+}
+
+/* Estilo futurista do botão de remover item do carrinho */
+.cart-item .remove-button {
+  background-color: #ff0000;
+  /* Botão com cores neon */
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 0.9rem;
+  border-radius: 100px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.cart-item .remove-button:hover {
+  background-color: #00ffff; /* Cor neon mais clara ao passar o mouse */
+}
+
+/* Estilo futurista para o botão "Enviar Pedidos" */
+#cartModal #sendOrder {
+  background: radial-gradient(circle at 50% 50%, #ab0100, #a80100, #570101);
+  border: none;
+  color: #1b1b1b;
+  padding: 15px 20px;
+  font-size: 1.2rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  width: 100%;
+  margin-top: 20px;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2); /* Sombra inicial */
+}
+
+#cartModal #sendOrder:hover {
+  background-color: #00ffff; /* Cor neon mais clara ao passar o mouse */
+  transform: scale(1.05); /* Aumenta levemente o botão */
+  box-shadow: 0 6px 12px rgba(255, 255, 255, 0.3); /* Sombra mais pronunciada */
+}
+
+/* Rodapé fixo no fundo da página */
+footer {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  background: radial-gradient(
+    circle at 50% 50%,
+    #ab0100,
+    #a80100,
+    #570101
+  ); /* Cor de fundo do rodapé */
+  color: #fff; /* Cor do texto */
+  text-align: center;
+  padding: 2px;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Sombra sutil */
+  font-size: 0.9rem; /* Tamanho da fonte */
+  z-index: 1000; /* Garante que o rodapé fique sobre o conteúdo */
+}
+
+/* Adiciona margem inferior para que o conteúdo não sobreponha o rodapé */
+body {
+  margin-bottom: 60px; /* Altura do rodapé + um pouco de espaço extra */
+}
+
+/* Estilo para os parágrafos no rodapé */
+footer p {
+  margin: 5px 0;
+}
+
+/* Estilo para os links no rodapé */
+footer a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+footer a:hover {
+  text-decoration: underline;
+}
+
+/* Estilo para os campos de entrada de nome */
+input[type="text"] {
+  width: 100%; /* Faz o input ocupar toda a largura do container */
+  padding: 12px 20px; /* Aumenta o espaço interno para maior altura */
+  font-size: 1.2rem; /* Aumenta o tamanho da fonte */
+  border: 2px solid #570101; /* Borda com cor temática */
+  border-radius: 5px; /* Bordas arredondadas */
+  margin-top: 10px; /* Espaçamento acima do campo */
+  box-sizing: border-box; /* Inclui padding e border no cálculo da largura */
+}
+
+/* Estilos do botão "Ver Carrinho" com efeito */
+button#viewCart {
+  background: radial-gradient(circle at 50% 50%, #ab0100, #a80100, #570101);
+  border: none;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 1rem;
+  border-radius: 30px;
+  cursor: pointer;
+  transition: all 0.3s ease; /* Transição suave para todas as propriedades */
+  margin-top: 20px;
+  width: 100%;
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2); /* Sombra inicial */
+}
+
+button#viewCart:hover {
+  background-color: #ff4c39; /* Cor de fundo ao passar o mouse */
+  transform: scale(1.05); /* Aumenta levemente o botão */
+  box-shadow: 0 6px 12px rgba(255, 255, 255, 0.3); /* Sombra mais pronunciada */
+}
+
+/* Estilos do botão "TOTAL" dentro do carrinho */
+button#cartTotal {
+  background: radial-gradient(circle at 50% 50%, #ab0100, #a80100, #570101);
+  border: none;
+  color: #fff;
+  padding: 8px 16px; /* Tamanho reduzido */
+  font-size: 0.9rem; /* Fonte um pouco menor */
+  border-radius: 20px; /* Borda menos arredondada */
+  cursor: pointer;
+  margin-top: 15px;
+  width: 55%; /* Botão um pouco menor na largura */
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1); /* Sombra mais sutil */
+}
+
+button#cartTotal:hover {
+  background-color: #ff6f61; /* Cor de fundo permanece a mesma */
+  box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1); /* Sombra permanece a mesma */
+}

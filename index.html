@@ -1,0 +1,654 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Escolha Seu Pastel - Cantinho do Pastel</title>
+    <link rel="stylesheet" href="style/pastel.css" />
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header>
+      <img src="img/Cantinhologo.png" alt="Logo Cantinho do Pastel" />
+    </header>
+
+    <main class="container">
+      <h1>Escolha Seu Pastel</h1>
+      <section class="pastel-options">
+        <button class="image-button" onclick="openModal('modal1')">
+          <img src="img/Pastel rs9,00.png" alt="Imagem de Pastel 1" />
+        </button>
+        <button class="image-button" onclick="openModal('modal2')">
+          <img src="img/Pastel rs12.png" alt="Imagem de Pastel 2" />
+        </button>
+        <button class="image-button" onclick="openModal('modal3')">
+          <img src="img/Pastel rs27.png" alt="Imagem de Pastel 3" />
+        </button>
+        <button class="image-button" onclick="openModal('modal4')">
+          <img src="img/GELADOS.png" alt="Imagem de Bebidas" />
+        </button>
+      </section>
+      <button id="viewCart" onclick="openCart()">Ver Carrinho</button>
+
+      <!-- Modal do Carrinho -->
+      <div id="cartModal" class="modal" style="display: none">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal('cartModal')">&times;</span>
+          <h2>Carrinho</h2>
+          <div id="cartItems"></div>
+          <h3><button id="cartTotal">0,00</button></h3>
+
+          <button id="sendOrder" onclick="sendOrder()">Enviar Pedidos</button>
+        </div>
+      </div>
+
+      <!-- Modal 1 -->
+      <div id="modal1" class="modal" style="display: none" data-price="9.00">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal('modal1')">&times;</span>
+          <h2>Escolha os Ingredientes do Pastel (Máximo 3 Sabores)</h2>
+          <div class="ingredient-list">
+            <h3>Sabores</h3>
+            <label
+              ><input
+                type="checkbox"
+                name="sabor1"
+                value="Queijo Coalho"
+                onchange="limitSelection('sabor1', 3)"
+              />
+              Queijo Coalho</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="sabor1"
+                value="Queijo Mussarela"
+                onchange="limitSelection('sabor1', 3)"
+              />
+              Queijo Mussarela</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="sabor1"
+                value="Presunto"
+                onchange="limitSelection('sabor1', 3)"
+              />
+              Presunto</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="sabor1"
+                value="Frango"
+                onchange="limitSelection('sabor1', 3)"
+              />
+              Frango</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="sabor1"
+                value="Bacon"
+                onchange="limitSelection('sabor1', 3)"
+              />
+              Bacon</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="sabor1"
+                value="Calabresa"
+                onchange="limitSelection('sabor1', 3)"
+              />
+              Calabresa</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="sabor1"
+                value="Charque"
+                onchange="limitSelection('sabor1', 3)"
+              />
+              Charque</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="sabor1"
+                value="Carne Moída"
+                onchange="limitSelection('sabor1', 3)"
+              />
+              Carne Moída</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="sabor1"
+                value="Carne de Sol"
+                onchange="limitSelection('sabor1', 3)"
+              />
+              Carne de Sol</label
+            >
+
+            <h3>Complementos</h3>
+            <label
+              ><input type="checkbox" name="complemento1" value="Tomate" />
+              Tomate</label
+            >
+            <label
+              ><input type="checkbox" name="complemento1" value="Cebola" />
+              Cebola</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="complemento1"
+                value="Ovo de Codorna"
+              />
+              Ovo de Codorna</label
+            >
+            <label
+              ><input type="checkbox" name="complemento1" value="Azeitona" />
+              Azeitona</label
+            >
+            <label
+              ><input type="checkbox" name="complemento1" value="Uva Passas" />
+              Uva Passas</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="complemento1"
+                value="Milho e Ervilha"
+              />
+              Milho e Ervilha</label
+            >
+            <label
+              ><input type="checkbox" name="complemento1" value="Orégano" />
+              Orégano</label
+            >
+            <label
+              ><input type="checkbox" name="complemento1" value="Coentro" />
+              Coentro</label
+            >
+
+            <h3>Molhos</h3>
+            <label
+              ><input type="checkbox" name="molho1" value="Ketchup" />
+              Ketchup</label
+            >
+            <label
+              ><input type="checkbox" name="molho1" value="Maionese" />
+              Maionese</label
+            >
+            <label
+              ><input type="checkbox" name="molho1" value="Mostarda" />
+              Mostarda</label
+            >
+            <label
+              ><input type="checkbox" name="molho1" value="Maionese Caseira" />
+              Maionese Caseira</label
+            >
+            <label
+              ><input type="checkbox" name="molho1" value="Barbecue" />
+              Barbecue</label
+            >
+            <label
+              ><input type="checkbox" name="molho1" value="Cheddar" />
+              Cheddar</label
+            >
+            <label
+              ><input type="checkbox" name="molho1" value="Catupiry" />
+              Catupiry</label
+            >
+            <label
+              ><input type="checkbox" name="molho1" value="Creme de Alho" />
+              Creme de Alho</label
+            >
+            <label
+              ><input type="checkbox" name="molho1" value="Pimenta" />
+              Pimenta</label
+            >
+          </div>
+          <input type="text" id="nome1" placeholder="Seu nome" />
+          <button
+            class="submit"
+            onclick="submitIngredients('sabor1', 'complemento1', 'molho1', 'nome1', 9)"
+          >
+            Enviar ao Carrinho
+          </button>
+        </div>
+      </div>
+
+      <!-- Modal 2 -->
+      <div id="modal2" class="modal" style="display: none" data-price="12.00">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal('modal2')">&times;</span>
+          <h2>Escolha os Ingredientes do Pastel (Máximo 5 Sabores)</h2>
+          <div class="ingredient-list">
+            <h3>Sabores</h3>
+            <label
+              ><input
+                type="checkbox"
+                name="sabor2"
+                value="Queijo Coalho"
+                onchange="limitSelection('sabor2', 5)"
+              />
+              Queijo Coalho</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="sabor2"
+                value="Queijo Mussarela"
+                onchange="limitSelection('sabor2', 5)"
+              />
+              Queijo Mussarela</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="sabor2"
+                value="Presunto"
+                onchange="limitSelection('sabor2', 5)"
+              />
+              Presunto</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="sabor2"
+                value="Frango"
+                onchange="limitSelection('sabor2', 5)"
+              />
+              Frango</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="sabor2"
+                value="Bacon"
+                onchange="limitSelection('sabor2', 5)"
+              />
+              Bacon</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="sabor2"
+                value="Calabresa"
+                onchange="limitSelection('sabor2', 5)"
+              />
+              Calabresa</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="sabor2"
+                value="Charque"
+                onchange="limitSelection('sabor2', 5)"
+              />
+              Charque</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="sabor2"
+                value="Carne Moída"
+                onchange="limitSelection('sabor2', 5)"
+              />
+              Carne Moída</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="sabor2"
+                value="Carne de Sol"
+                onchange="limitSelection('sabor2', 5)"
+              />
+              Carne de Sol</label
+            >
+
+            <h3>Complementos</h3>
+            <label
+              ><input type="checkbox" name="complemento2" value="Tomate" />
+              Tomate</label
+            >
+            <label
+              ><input type="checkbox" name="complemento2" value="Cebola" />
+              Cebola</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="complemento2"
+                value="Ovo de Codorna"
+              />
+              Ovo de Codorna</label
+            >
+            <label
+              ><input type="checkbox" name="complemento2" value="Azeitona" />
+              Azeitona</label
+            >
+            <label
+              ><input type="checkbox" name="complemento2" value="Uva Passas" />
+              Uva Passas</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="complemento2"
+                value="Milho e Ervilha"
+              />
+              Milho e Ervilha</label
+            >
+            <label
+              ><input type="checkbox" name="complemento2" value="Orégano" />
+              Orégano</label
+            >
+            <label
+              ><input type="checkbox" name="complemento2" value="Coentro" />
+              Coentro</label
+            >
+
+            <h3>Molhos</h3>
+            <label
+              ><input type="checkbox" name="molho2" value="Ketchup" />
+              Ketchup</label
+            >
+            <label
+              ><input type="checkbox" name="molho2" value="Maionese" />
+              Maionese</label
+            >
+            <label
+              ><input type="checkbox" name="molho2" value="Mostarda" />
+              Mostarda</label
+            >
+            <label
+              ><input type="checkbox" name="molho2" value="Maionese Caseira" />
+              Maionese Caseira</label
+            >
+            <label
+              ><input type="checkbox" name="molho2" value="Barbecue" />
+              Barbecue</label
+            >
+            <label
+              ><input type="checkbox" name="molho2" value="Cheddar" />
+              Cheddar</label
+            >
+            <label
+              ><input type="checkbox" name="molho2" value="Catupiry" />
+              Catupiry</label
+            >
+            <label
+              ><input type="checkbox" name="molho2" value="Creme de Alho" />
+              Creme de Alho</label
+            >
+            <label
+              ><input type="checkbox" name="molho2" value="Pimenta" />
+              Pimenta</label
+            >
+          </div>
+          <input type="text" id="nome2" placeholder="Seu nome" />
+          <button
+            class="submit"
+            onclick="submitIngredients('sabor2', 'complemento2', 'molho2', 'nome2', 12)"
+          >
+            Enviar ao Carrinho
+          </button>
+        </div>
+      </div>
+
+      <!-- Modal 3 -->
+      <div id="modal3" class="modal" style="display: none" data-price="27.00">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal('modal3')">&times;</span>
+          <h2>Escolha os Ingredientes do Pastel (Máximo 9 Sabores)</h2>
+          <div class="ingredient-list">
+            <h3>Sabores</h3>
+            <label
+              ><input
+                type="checkbox"
+                name="sabor3"
+                value="Queijo Coalho"
+                onchange="limitSelection('sabor3', 9)"
+              />
+              Queijo Coalho</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="sabor3"
+                value="Queijo Mussarela"
+                onchange="limitSelection('sabor3', 9)"
+              />
+              Queijo Mussarela</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="sabor3"
+                value="Presunto"
+                onchange="limitSelection('sabor3', 9)"
+              />
+              Presunto</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="sabor3"
+                value="Frango"
+                onchange="limitSelection('sabor3', 9)"
+              />
+              Frango</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="sabor3"
+                value="Bacon"
+                onchange="limitSelection('sabor3', 9)"
+              />
+              Bacon</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="sabor3"
+                value="Calabresa"
+                onchange="limitSelection('sabor3', 9)"
+              />
+              Calabresa</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="sabor3"
+                value="Charque"
+                onchange="limitSelection('sabor3', 9)"
+              />
+              Charque</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="sabor3"
+                value="Carne Moída"
+                onchange="limitSelection('sabor3', 9)"
+              />
+              Carne Moída</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="sabor3"
+                value="Carne de Sol"
+                onchange="limitSelection('sabor3', 9)"
+              />
+              Carne de Sol</label
+            >
+
+            <h3>Complementos</h3>
+            <label
+              ><input type="checkbox" name="complemento3" value="Tomate" />
+              Tomate</label
+            >
+            <label
+              ><input type="checkbox" name="complemento3" value="Cebola" />
+              Cebola</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="complemento3"
+                value="Ovo de Codorna"
+              />
+              Ovo de Codorna</label
+            >
+            <label
+              ><input type="checkbox" name="complemento3" value="Azeitona" />
+              Azeitona</label
+            >
+            <label
+              ><input type="checkbox" name="complemento3" value="Uva Passas" />
+              Uva Passas</label
+            >
+            <label
+              ><input
+                type="checkbox"
+                name="complemento3"
+                value="Milho e Ervilha"
+              />
+              Milho e Ervilha</label
+            >
+            <label
+              ><input type="checkbox" name="complemento3" value="Orégano" />
+              Orégano</label
+            >
+            <label
+              ><input type="checkbox" name="complemento3" value="Coentro" />
+              Coentro</label
+            >
+
+            <h3>Molhos</h3>
+            <label
+              ><input type="checkbox" name="molho3" value="Ketchup" />
+              Ketchup</label
+            >
+            <label
+              ><input type="checkbox" name="molho3" value="Maionese" />
+              Maionese</label
+            >
+            <label
+              ><input type="checkbox" name="molho3" value="Mostarda" />
+              Mostarda</label
+            >
+            <label
+              ><input type="checkbox" name="molho3" value="Maionese Caseira" />
+              Maionese Caseira</label
+            >
+            <label
+              ><input type="checkbox" name="molho3" value="Barbecue" />
+              Barbecue</label
+            >
+            <label
+              ><input type="checkbox" name="molho3" value="Cheddar" />
+              Cheddar</label
+            >
+            <label
+              ><input type="checkbox" name="molho3" value="Catupiry" />
+              Catupiry</label
+            >
+            <label
+              ><input type="checkbox" name="molho3" value="Creme de Alho" />
+              Creme de Alho</label
+            >
+            <label
+              ><input type="checkbox" name="molho3" value="Pimenta" />
+              Pimenta</label
+            >
+          </div>
+          <input type="text" id="nome3" placeholder="Seu nome" />
+          <button
+            class="submit"
+            onclick="submitIngredients('sabor3', 'complemento3', 'molho3', 'nome3', 27)"
+          >
+            Enviar ao Carrinho
+          </button>
+        </div>
+      </div>
+
+      <!-- Modal 4 (Bebidas) -->
+      <div id="modal4" class="modal" style="display: none">
+        <div class="modal-content">
+          <span class="close" onclick="closeModal('modal4')">&times;</span>
+          <h2>Escolha Suas Bebidas</h2>
+          <div class="ingredient-list">
+            <label>
+              <input
+                type="checkbox"
+                name="bebida1"
+                value="Coca-Cola 1L"
+                data-price="9.00"
+              />
+              Coca-Cola 1L - R$9,00
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="bebida1"
+                value="Antártica 1L"
+                data-price="9.00"
+              />
+              Antártica 1L - R$9,00
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="bebida1"
+                value="CoCa 450ML"
+                data-price="6.00"
+              />
+              CoCa 450ML - R$6,00
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="bebida1"
+                value="Antártica 450ML"
+                data-price="6.00"
+              />
+              Antártica 450ML - R$6,00
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="bebida1"
+                value="Del-Vale Laranja 350ML"
+                data-price="4.50"
+              />
+              D.Vale Laranja 350ML - R$6,00
+            </label>
+            <label>
+              <input
+                type="checkbox"
+                name="bebida1"
+                value="Suco de Limão"
+                data-price="4.00"
+              />
+              Aguá - R$2,50
+            </label>
+          </div>
+          <button class="submit" onclick="submitBeverages('bebida1')">
+            Enviar ao Carrinho
+          </button>
+        </div>
+      </div>
+    </main>
+
+    <footer>
+      <p>&copy; 2024 Cantinho do Pastel. Todos os direitos reservados.</p>
+    </footer>
+  </body>
+</html>
