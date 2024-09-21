@@ -194,7 +194,7 @@ h1:hover {
 
 /* Estilo de botões dentro do modal */
 .modal button {
-  background-color: #0ff;
+  background-color: rgb(255, 255, 255);
   color: #1b1b1b;
   border: none;
   padding: 10px 20px;
@@ -205,7 +205,7 @@ h1:hover {
 }
 
 .modal button:hover {
-  background-color: #00e6e6; /* Cor mais clara ao passar o mouse */
+  background-color: #ffffff; /* Cor mais clara ao passar o mouse */
 }
 
 /* Estilo para o botão de fechar */
@@ -315,7 +315,12 @@ button.submit:hover {
 
 /* Estilo futurista e neon para o conteúdo do modal do carrinho */
 #cartModal .modal-content {
-  background-color: #1b1b1b; /* Fundo escuro para estilo futurista */
+  background: radial-gradient(
+    circle at 50% 50%,
+    #ab0100,
+    #a80100,
+    #570101
+  ); /* Fundo escuro para estilo futurista */
   margin: 5% auto;
   padding: 20px;
   border: 2px solid rgb(255, 255, 255); /* Borda neon */
@@ -343,7 +348,7 @@ button.submit:hover {
 /* Estilo futurista para os itens do carrinho */
 #cartItems {
   background-color: rgba(
-    0,
+    255,
     255,
     255,
     0.1
@@ -362,7 +367,7 @@ button.submit:hover {
   border-radius: 10px;
   padding: 15px;
   margin-bottom: 10px;
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 8px rgba(255, 244, 244, 0.1);
   color: rgb(255, 255, 255); /* Cor neon */
 }
 
@@ -387,7 +392,7 @@ button.submit:hover {
 #cartModal #sendOrder {
   background: radial-gradient(circle at 50% 50%, #ab0100, #a80100, #570101);
   border: none;
-  color: #1b1b1b;
+  color: #ffffff;
   padding: 15px 20px;
   font-size: 1.2rem;
   border-radius: 30px;
@@ -399,7 +404,7 @@ button.submit:hover {
 }
 
 #cartModal #sendOrder:hover {
-  background-color: #00ffff; /* Cor neon mais clara ao passar o mouse */
+  background-color: #ffffff; /* Cor neon mais clara ao passar o mouse */
   transform: scale(1.05); /* Aumenta levemente o botão */
   box-shadow: 0 6px 12px rgba(255, 255, 255, 0.3); /* Sombra mais pronunciada */
 }
