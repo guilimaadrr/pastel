@@ -8,24 +8,30 @@
 /* Estilos básicos do corpo */
 body {
   font-family: "Roboto", sans-serif;
-  background: radial-gradient(circle at 50% 50%, #ab0100, #a80100, #570101);
+  background: radial-gradient(circle at center, #ab0100, #a80100, #570101);
   color: #ff3131;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  padding: 10px;
-  padding-bottom: 250px; /* Espaço para o rodapé fixo */
-  overflow-y: auto; /* Permite a rolagem vertical */
-  height: auto; /* Ajusta a altura conforme o conteúdo */
+  padding: 20px; /* Aumenta o espaçamento para uma sensação mais equilibrada */
+  padding-bottom: 200px; /* Adiciona mais espaço ao final do site */
+  overflow-y: hidden; /* Remove rolagem vertical */
+  height: 100vh; /* Garante que o body ocupe toda a altura da tela */
+  margin: 0; /* Remove qualquer margem padrão do body */
+  transition: background 0.3s ease-in-out; /* Suave transição para mudanças de fundo */
 }
 
-/* Estilo específico para a cor de fundo da barra de status em dispositivos móveis */
+/* Responsividade para dispositivos menores */
 @media (max-width: 600px) {
-  .modal-content {
-    width: 95%; /* Quase toda a largura da tela */
-    max-height: 90vh; /* Quase toda a altura da tela */
+  body {
+    padding: 15px;
+    background: radial-gradient(
+      circle at center,
+      #a80100,
+      #570101
+    ); /* Fundo ajustado para telas menores */
   }
 
   /* Outras customizações para telas menores */
@@ -71,32 +77,52 @@ body {
 /* Estilos do cabeçalho */
 header {
   text-align: center;
-  width: 300px; /* Largura padrão do cabeçalho */
-  height: 300px; /* Altura proporcional à largura */
-  margin-bottom: 20px;
-  margin-top: 0;
-  padding-top: 0;
+  width: 80%; /* Ajusta a largura para ser mais responsiva */
+  max-width: 300px; /* Largura máxima para evitar excessos */
+  height: auto; /* Altura automática para ajustar ao conteúdo */
+  margin: 0 auto 20px; /* Centraliza e define a margem inferior */
+  padding: 20px; /* Adiciona espaçamento interno */
   border-radius: 50%; /* Mantém o cabeçalho redondo */
   overflow: hidden;
   display: flex;
+  flex-direction: column; /* Permite que o conteúdo empilhe verticalmente */
   justify-content: center;
   align-items: center;
+  background: rgba(
+    255,
+    255,
+    255,
+    0.1
+  ); /* Fundo semi-transparente para destaque */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2); /* Sombra para profundidade */
   user-select: none; /* Impede a seleção do cabeçalho */
+}
+
+/* Estilos para o título dentro do cabeçalho */
+header h1 {
+  font-size: 1.8rem; /* Tamanho da fonte ajustado */
+  color: #ffffff; /* Cor do texto */
+  margin: 0; /* Remove margens para um layout mais limpo */
 }
 
 /* Estilos para o container principal */
 .container {
   text-align: center;
-  width: 80%;
+  width: 80%; /* Largura responsiva */
   max-width: 600px; /* Define uma largura máxima para o container */
   height: auto; /* Ajusta a altura do container conforme o conteúdo */
+  margin: 0 auto; /* Centraliza o container */
+  padding: 20px; /* Adiciona espaçamento interno para o container */
+  border-radius: 15px; /* Bordas arredondadas para um visual suave */
+  background: rgba(255, 255, 255, 0.05); /* Fundo leve para destaque */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Sombra leve para profundidade */
 }
 
 /* Estilos do título */
 h1 {
-  font-size: 2rem; /* Aumenta o tamanho da fonte para maior impacto */
+  font-size: 1.8rem; /* Aumenta o tamanho da fonte para maior impacto */
   font-weight: 700; /* Mantém o peso da fonte em negrito */
-  letter-spacing: 0.5px; /* Leve espaçamento entre letras para melhor legibilidade */
+  letter-spacing: 1px; /* Leve espaçamento entre letras para melhor legibilidade */
   margin-bottom: 25px; /* Aumenta o espaço abaixo do título */
   color: #ffffff; /* Cor de fallback para navegadores que não suportam background-clip */
   background: linear-gradient(135deg, #ffffff, #cecece); /* Gradiente suave */
@@ -167,7 +193,7 @@ h1:hover {
 
 /* Estilo futurista e neon para o conteúdo do modal */
 .modal-content {
-  background-color: #570101; /* Fundo escuro para estilo futurista */
+  background: radial-gradient(circle at 50% 50%, #ab0100, #a80100, #570101);
   margin: 5% auto;
   padding: 20px;
   border: 2px solid rgb(255, 255, 255); /* Borda neon */
@@ -218,7 +244,7 @@ h1:hover {
 
 .close:hover,
 .close:focus {
-  color: black;
+  color: rgb(255, 255, 255);
   text-decoration: none;
   cursor: pointer;
 }
@@ -356,7 +382,7 @@ button.submit:hover {
   border-radius: 15px;
   padding: 20px;
   margin-bottom: 20px;
-  color: #0ff; /* Cor neon */
+  color: rgb(255, 255, 255); /* Cor neon */
   box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2); /* Sombra neon */
 }
 
@@ -385,7 +411,7 @@ button.submit:hover {
 }
 
 .cart-item .remove-button:hover {
-  background-color: #00ffff; /* Cor neon mais clara ao passar o mouse */
+  background-color: #000000; /* Cor neon mais clara ao passar o mouse */
 }
 
 /* Estilo futurista para o botão "Enviar Pedidos" */
@@ -431,7 +457,7 @@ footer {
 
 /* Adiciona margem inferior para que o conteúdo não sobreponha o rodapé */
 body {
-  margin-bottom: 60px; /* Altura do rodapé + um pouco de espaço extra */
+  margin-bottom: 0px; /* Altura do rodapé + um pouco de espaço extra */
 }
 
 /* Estilo para os parágrafos no rodapé */
@@ -452,13 +478,26 @@ footer a:hover {
 
 /* Estilo para os campos de entrada de nome */
 input[type="text"] {
-  width: 100%; /* Faz o input ocupar toda a largura do container */
-  padding: 12px 20px; /* Aumenta o espaço interno para maior altura */
-  font-size: 1.2rem; /* Aumenta o tamanho da fonte */
-  border: 2px solid #570101; /* Borda com cor temática */
-  border-radius: 5px; /* Bordas arredondadas */
-  margin-top: 10px; /* Espaçamento acima do campo */
-  box-sizing: border-box; /* Inclui padding e border no cálculo da largura */
+  width: 100%;
+  padding: 14px 22px;
+  font-size: 1.3rem;
+  border: 2px solid #ff0000; /* Borda vermelha */
+  border-radius: 50px;
+  background: rgba(255, 255, 255, 0.8); /* Fundo branco semi-transparente */
+  color: #ff0000; /* Texto vermelho */
+  margin-top: 20px;
+  box-sizing: border-box;
+  outline: none;
+  transition: all 0.3s ease-in-out; /* Transição suave para efeitos interativos */
+}
+
+input[type="text"]:hover {
+  border-color: #ff6666; /* Tom de vermelho mais claro ao passar o mouse */
+}
+
+input[type="text"]:focus {
+  box-shadow: 0 0 15px #ff0000, 0 0 25px #ffffff; /* Efeito neon vermelho e branco no foco */
+  border-color: #ff0000; /* Borda vermelha no foco */
 }
 
 /* Estilos do botão "Ver Carrinho" com efeito */
@@ -471,7 +510,7 @@ button#viewCart {
   border-radius: 30px;
   cursor: pointer;
   transition: all 0.3s ease; /* Transição suave para todas as propriedades */
-  margin-top: 20px;
+  margin-top: 35px;
   width: 100%;
   box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2); /* Sombra inicial */
 }
