@@ -27,11 +27,16 @@ body {
 @media (max-width: 600px) {
   body {
     padding: 15px;
-    background: radial-gradient(
-      circle at center,
-      #a80100,
-      #570101
-    ); /* Fundo ajustado para telas menores */
+    padding-bottom: 100px; /* Ajusta o padding inferior para melhor usabilidade */
+    background: radial-gradient(circle at center, #a80100, #570101);
+  }
+}
+
+/* Ajustes adicionais para telas menores em altura */
+@media (max-height: 900px) {
+  body {
+    padding-bottom: 50px; /* Reduz o espaço na parte inferior para telas mais curtas */
+    justify-content: flex-start; /* Evita que o conteúdo fique "preso" no centro */
   }
 
   /* Outras customizações para telas menores */
@@ -120,7 +125,7 @@ header h1 {
 
 /* Estilos do título */
 h1 {
-  font-size: 1.8rem; /* Aumenta o tamanho da fonte para maior impacto */
+  font-size: 1.4rem; /* Aumenta o tamanho da fonte para maior impacto */
   font-weight: 700; /* Mantém o peso da fonte em negrito */
   letter-spacing: 1px; /* Leve espaçamento entre letras para melhor legibilidade */
   margin-bottom: 25px; /* Aumenta o espaço abaixo do título */
@@ -363,7 +368,7 @@ button.submit:hover {
 
 /* Estilo para o título do modal do carrinho */
 #cartModal h2 {
-  font-size: 1.8rem;
+  font-size: 1.4rem;
   margin-bottom: 20px;
   color: rgb(255, 255, 255); /* Cor neon para o título */
   text-align: center;
@@ -418,14 +423,14 @@ button.submit:hover {
 #cartModal #sendOrder {
   background: radial-gradient(circle at 50% 50%, #ab0100, #a80100, #570101);
   border: none;
-  color: #ffffff;
-  padding: 15px 20px;
-  font-size: 1.2rem;
+  color: #fff;
+  padding: 10px 20px;
+  font-size: 1rem;
   border-radius: 30px;
   cursor: pointer;
-  transition: background-color 0.3s ease;
+  transition: all 0.3s ease; /* Transição suave para todas as propriedades */
+  margin-top: 35px;
   width: 100%;
-  margin-top: 20px;
   box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2); /* Sombra inicial */
 }
 
@@ -481,10 +486,10 @@ input[type="text"] {
   width: 100%;
   padding: 14px 22px;
   font-size: 1.3rem;
-  border: 2px solid #ff0000; /* Borda vermelha */
+  border: 2px solid #ffffff; /* Borda vermelha */
   border-radius: 50px;
-  background: rgba(255, 255, 255, 0.8); /* Fundo branco semi-transparente */
-  color: #ff0000; /* Texto vermelho */
+  background: #a80100; /* Fundo semi-transparente */
+  color: #ffffff; /* Texto vermelho */
   margin-top: 20px;
   box-sizing: border-box;
   outline: none;
@@ -492,12 +497,12 @@ input[type="text"] {
 }
 
 input[type="text"]:hover {
-  border-color: #ff6666; /* Tom de vermelho mais claro ao passar o mouse */
+  border-color: #ffffff; /* Tom de vermelho mais claro ao passar o mouse */
 }
 
 input[type="text"]:focus {
   box-shadow: 0 0 15px #ff0000, 0 0 25px #ffffff; /* Efeito neon vermelho e branco no foco */
-  border-color: #ff0000; /* Borda vermelha no foco */
+  border-color: #ff6666; /* Borda vermelha no foco */
 }
 
 /* Estilos do botão "Ver Carrinho" com efeito */
