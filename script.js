@@ -72,6 +72,9 @@ function submitIngredients(
     price
   );
 
+  // Exibe a mensagem "pedido enviado ao carrinho"
+  alert("Pedido enviado ao carrinho.");
+
   // Close modal after submission
   closeModal(`modal${nomeId.charAt(nomeId.length - 1)}`);
 }
@@ -207,6 +210,9 @@ function submitBeverages(beverageName) {
     addToCart(beverage.name, [], [], [], beverage.price, true);
   });
 
+  // Exibe a mensagem "pedido enviado ao carrinho"
+  alert("Pedido enviado ao carrinho.");
+
   // Close modal after submission
   closeModal("modal4");
 }
@@ -270,6 +276,9 @@ function sendOrder() {
   )}`;
 
   window.open(url, "_blank");
+
+  // Exibe a mensagem "pedido enviado ao carrinho"
+  alert("Pedido enviado ao carrinho.");
 
   clearCart();
 }
