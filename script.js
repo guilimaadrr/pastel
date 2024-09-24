@@ -270,7 +270,7 @@ function sendOrder() {
 
   message += "🥰 Cantinho Do Pastel Agradece! 🥰\n";
 
-  const phoneNumber = "5581994956795"; // Your WhatsApp number
+  const phoneNumber = "5581989361736"; // Your WhatsApp number
   const url = `https://wa.me/${phoneNumber}?text=${encodeURIComponent(
     message
   )}`;
