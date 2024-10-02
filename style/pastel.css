@@ -82,8 +82,8 @@ body {
 /* Estilos do cabeçalho */
 header {
   text-align: center;
-  width: 80%; /* Ajusta a largura para ser mais responsiva */
-  max-width: 300px; /* Largura máxima para evitar excessos */
+  width: 90%; /* Aumenta a largura para se ajustar melhor em telas pequenas */
+  max-width: 400px; /* Largura máxima para evitar excessos */
   height: auto; /* Altura automática para ajustar ao conteúdo */
   margin: 0 auto 20px; /* Centraliza e define a margem inferior */
   padding: 20px; /* Adiciona espaçamento interno */
@@ -105,7 +105,7 @@ header {
 
 /* Estilos para o título dentro do cabeçalho */
 header h1 {
-  font-size: 1.8rem; /* Tamanho da fonte ajustado */
+  font-size: 1.6rem; /* Reduz o tamanho da fonte para dispositivos móveis */
   color: #ffffff; /* Cor do texto */
   margin: 0; /* Remove margens para um layout mais limpo */
 }
@@ -113,7 +113,7 @@ header h1 {
 /* Estilos para o container principal */
 .container {
   text-align: center;
-  width: 80%; /* Largura responsiva */
+  width: 90%; /* Aumenta a largura para se ajustar melhor em telas pequenas */
   max-width: 600px; /* Define uma largura máxima para o container */
   height: auto; /* Ajusta a altura do container conforme o conteúdo */
   margin: 0 auto; /* Centraliza o container */
@@ -123,9 +123,26 @@ header h1 {
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15); /* Sombra leve para profundidade */
 }
 
-/* Estilos do título */
+/* Estilos responsivos adicionais */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 1.4rem; /* Ajusta o tamanho da fonte em telas menores */
+  }
+
+  header {
+    padding: 15px; /* Reduz o padding para um layout mais compacto */
+  }
+
+  .container {
+    padding: 15px; /* Reduz o padding no container para dispositivos móveis */
+  }
+}
+
+/* ==============================
+   Estilos do Título
+   ============================== */
 h1 {
-  font-size: 1.4rem; /* Aumenta o tamanho da fonte para maior impacto */
+  font-size: 1.8rem; /* Aumenta o tamanho da fonte para maior impacto em dispositivos móveis */
   font-weight: 700; /* Mantém o peso da fonte em negrito */
   letter-spacing: 1px; /* Leve espaçamento entre letras para melhor legibilidade */
   margin-bottom: 25px; /* Aumenta o espaço abaixo do título */
@@ -138,9 +155,10 @@ h1 {
   display: inline-block; /* Necessário para o clipping */
   text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4); /* Sombra do texto para maior profundidade */
   text-align: center; /* Centraliza o título */
-  line-height: 2; /* Melhora a legibilidade aumentando a altura da linha */
-  max-width: 100%; /* Limita a largura do título em telas pequenas */
+  line-height: 1.5; /* Melhora a legibilidade aumentando a altura da linha */
+  max-width: 90%; /* Limita a largura do título em telas pequenas */
   margin: 0 auto; /* Centraliza o título horizontalmente */
+  padding: 0 10px; /* Adiciona um padding lateral para evitar que o texto encoste nas bordas */
 }
 
 /* Efeitos de transição suave ao passar o mouse */
@@ -149,11 +167,26 @@ h1:hover {
   transition: transform 0.3s ease; /* Transição suave */
 }
 
-/* Estilo das opções de pastéis */
+/* Estilo adicional para telas menores */
+@media (max-width: 600px) {
+  h1 {
+    font-size: 1.6rem; /* Ajusta o tamanho da fonte para telas menores */
+    line-height: 1.4; /* Aumenta o espaçamento entre linhas para melhor legibilidade */
+    padding: 0 5px; /* Ajusta o padding para telas menores */
+  }
+}
+
+/* ==============================
+   Estilo das Opções de Pastéis
+   ============================== */
 .pastel-options {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(100px, 1fr));
-  gap: 15px;
+  grid-template-columns: repeat(
+    auto-fit,
+    minmax(80px, 1fr)
+  ); /* Tamanho mínimo reduzido para telas menores */
+  gap: 10px; /* Espaço entre os botões */
+  padding: 10px; /* Espaçamento interno */
 }
 
 /* Ajustes para os botões das imagens */
@@ -161,28 +194,46 @@ h1:hover {
   border: none;
   background: none;
   cursor: pointer;
-  transition: transform 0.3s ease;
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transições suaves */
 }
 
+/* Estilo das imagens dentro dos botões */
 .image-button img {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
+  width: 100%; /* Largura total para melhor responsividade */
+  height: auto; /* Ajuste automático da altura */
+  max-width: 100px; /* Limita o tamanho máximo para telas menores */
+  border-radius: 10px; /* Bordas arredondadas */
+  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.3); /* Sombra mais suave */
+  transition: transform 0.3s ease; /* Suaviza a transformação da imagem */
 }
 
+/* Efeito de hover para as imagens */
 .image-button:hover img {
-  transform: scale(1.05);
-  box-shadow: 0 6px 12px rgba(255, 255, 255, 0.2);
+  transform: scale(1.05); /* Aumento mais sutil ao passar o mouse */
+  box-shadow: 0 6px 12px rgba(255, 255, 255, 0.4); /* Sombra mais pronunciada */
 }
 
-/* Estilos dos modais */
+/* Estilo adicional para telas menores */
+@media (max-width: 600px) {
+  .pastel-options {
+    grid-template-columns: repeat(
+      auto-fit,
+      minmax(70px, 1fr)
+    ); /* Ajuste para telas menores */
+  }
+
+  .image-button img {
+    max-width: 80px; /* Limite do tamanho da imagem para dispositivos móveis */
+  }
+}
+
+/* ==============================
+   Estilos dos Modais
+   ============================== */
 .modal {
   display: none;
   position: fixed;
-  z-index: 1;
+  z-index: 1000; /* Aumentado para garantir que o modal fique acima de outros elementos */
   left: 0;
   top: 0;
   width: 100%;
@@ -192,181 +243,320 @@ h1:hover {
     0,
     0,
     0,
-    0.7
-  ); /* Cor de fundo escura e semi-transparente */
+    0.8
+  ); /* Fundo escuro e semi-transparente, levemente mais opaco */
+  backdrop-filter: blur(5px); /* Adiciona um efeito de desfoque no fundo */
 }
 
 /* Estilo futurista e neon para o conteúdo do modal */
 .modal-content {
-  background: radial-gradient(circle at 50% 50%, #ab0100, #a80100, #570101);
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(171, 1, 0, 0.9),
+    rgba(168, 1, 0, 0.8),
+    rgba(87, 1, 1, 0.9)
+  ); /* Gradiente mais suave com opacidade */
   margin: 5% auto;
-  padding: 20px;
-  border: 2px solid rgb(255, 255, 255); /* Borda neon */
-  border-radius: 30px;
+  padding: 25px; /* Aumentado para mais espaço interno */
+  border: 2px solid rgba(255, 255, 255, 0.8); /* Borda neon com leve transparência */
+  border-radius: 35px; /* Bordas arredondadas mais suaves */
   width: 80%;
   max-height: 80vh;
   overflow-y: auto;
-  box-shadow: 0 0 20px rgb(255, 255, 255), 0 0 30px rgb(255, 255, 255),
-    0 0 40px #570101; /* Efeito de brilho neon */
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.8), 0 0 30px rgba(255, 0, 0, 0.8),
+    0 0 40px rgba(87, 1, 1, 0.9); /* Efeito de brilho neon mais intenso */
 
   /* Adicionando animação de fade-in */
-  animation: fadeIn 0.3s ease-out;
+  animation: fadeIn 0.4s ease-out; /* Aumentado o tempo da animação para um efeito mais suave */
 }
 
-/* Estilo dos títulos no modal */
+/* Animação de fade-in */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10%); /* Animação de movimento para baixo */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Retorna à posição original */
+  }
+}
+
+/* ==============================
+   Estilo dos Títulos no Modal
+   ============================== */
 .modal h2 {
-  font-size: 15px;
-  margin-bottom: 20px;
+  font-size: 15px; /* Aumentado para um tamanho mais proeminente */
+  margin-bottom: 25px; /* Aumentado para mais espaço abaixo do título */
   color: rgb(255, 255, 255); /* Cor neon para o título */
-  text-align: center;
-  text-transform: uppercase;
-  letter-spacing: 3px; /* Espaçamento entre letras para um toque mais futurista */
+  text-align: center; /* Centraliza o texto */
+  text-transform: uppercase; /* Transforma o texto em maiúsculas */
+  letter-spacing: 4px; /* Espaçamento entre letras para um toque mais futurista */
+  text-shadow: 0 0 10px rgba(255, 255, 255, 0.8),
+    /* Brilho suave ao redor do texto */ 0 0 20px rgba(255, 0, 0, 0.7); /* Brilho mais intenso para um efeito neon */
+  transition: transform 0.3s ease; /* Adiciona transição suave ao hover */
 }
 
-/* Estilo de botões dentro do modal */
+/* Efeito de hover no título */
+.modal h2:hover {
+  transform: translateY(
+    -2px
+  ); /* Levanta o título levemente ao passar o mouse */
+}
+
+/* ==============================
+   Estilo de Botões Dentro do Modal
+   ============================== */
 .modal button {
-  background-color: rgb(255, 255, 255);
-  color: #1b1b1b;
-  border: none;
-  padding: 10px 20px;
-  cursor: pointer;
-  border-radius: 25px;
-  font-size: 1rem;
-  transition: background-color 0.3s ease;
+  background-color: rgb(255, 255, 255); /* Cor de fundo padrão */
+  color: #1b1b1b; /* Cor do texto */
+  border: none; /* Sem borda */
+  padding: 12px 24px; /* Aumentado para um espaço interno mais confortável */
+  cursor: pointer; /* Cursor de mão ao passar o mouse */
+  border-radius: 25px; /* Bordas arredondadas */
+  font-size: 1rem; /* Tamanho da fonte */
+  font-weight: bold; /* Texto em negrito para destaque */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Sombra sutil para profundidade */
+  transition: background-color 0.3s ease, transform 0.2s ease,
+    box-shadow 0.3s ease; /* Transições suaves */
 }
 
+/* Efeitos ao passar o mouse */
 .modal button:hover {
-  background-color: #ffffff; /* Cor mais clara ao passar o mouse */
+  background-color: #ff6f61; /* Cor de fundo neon ao passar o mouse */
+  color: #ffffff; /* Cor do texto muda para branco */
+  transform: translateY(-2px); /* Levanta o botão ao passar o mouse */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Aumenta a sombra para um efeito mais pronunciado */
 }
 
-/* Estilo para o botão de fechar */
+/* Efeitos ao focar */
+.modal button:focus {
+  outline: none; /* Remove o contorno padrão ao focar */
+  box-shadow: 0 0 0 3px rgba(255, 102, 102, 0.5); /* Adiciona um brilho ao redor do botão ao focar */
+}
+
+/* ===========================
+   Estilo para o Botão de Fechar
+   =========================== */
 .close {
-  color: #aaa;
-  float: right;
-  font-size: 28px;
-  font-weight: bold;
+  color: #ffffff; /* Cor padrão */
+  float: right; /* Alinha à direita */
+  font-size: 28px; /* Tamanho da fonte */
+  font-weight: bold; /* Negrito */
+  transition: color 0.3s ease, transform 0.2s ease; /* Transições suaves para cor e transformação */
 }
 
+/* Efeitos ao passar o mouse ou ao focar */
 .close:hover,
 .close:focus {
-  color: rgb(255, 255, 255);
-  text-decoration: none;
-  cursor: pointer;
+  color: #ff6f61; /* Cor neon ao passar o mouse */
+  text-decoration: none; /* Remove sublinhado */
+  cursor: pointer; /* Muda o cursor para indicar que é clicável */
+  transform: scale(1.1); /* Aumenta o botão levemente ao passar o mouse */
 }
 
-/* Estilo da barra de ingredientes com rolagem */
+/* ===========================
+   Estilo da Barra de Ingredientes com Rolagem para Mobile
+   =========================== */
 .ingredient-list {
-  display: flex;
-  flex-direction: column;
-  max-height: 300px; /* Limita a altura da barra de ingredientes */
-  overflow-y: auto; /* Adiciona rolagem vertical à barra de ingredientes */
-  padding: 10px;
-  border-radius: 15px; /* Arredondamento das bordas */
-  background-color: rgba(
-    255,
-    255,
-    255,
-    0.1
-  ); /* Fundo mais claro com transparência */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Sombra mais escura para visibilidade */
+  display: flex; /* Flexbox para organização vertical */
+  flex-direction: column; /* Alinha itens na vertical */
+  max-height: 58%; /* Limita a altura da barra para evitar sobrecarga em telas pequenas */
+  overflow-y: auto; /* Adiciona rolagem vertical */
+  padding: 15px; /* Aumenta o espaçamento interno */
+  border-radius: 20px; /* Bordas mais arredondadas */
+  background-color: rgba(255, 255, 255, 0.1); /* Fundo com transparência */
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3); /* Sombra mais intensa para melhor visibilidade */
 }
 
+/* Estilo para o título da lista de ingredientes */
 .ingredient-list h3 {
-  text-transform: uppercase;
-  color: #ffffff; /* Cor dos títulos dos ingredientes */
-  font-size: 1.1rem;
-  margin-bottom: 10px;
+  text-transform: uppercase; /* Texto em maiúsculas */
+  color: #ffffff; /* Cor do texto */
+  font-size: 1.2rem; /* Aumenta o tamanho da fonte do título */
+  margin-bottom: 12px; /* Espaçamento abaixo do título */
+  text-align: center; /* Centraliza o título */
 }
 
+/* Estilo para os rótulos de ingredientes */
 .ingredient-list label {
-  text-transform: uppercase; /* Coloca o texto dos ingredientes em maiúsculas */
-  margin-bottom: 5px; /* Espaço entre as opções de ingredientes */
+  text-transform: uppercase; /* Texto em maiúsculas */
+  margin-bottom: 8px; /* Aumenta o espaço entre as opções */
+  font-size: 0.84rem; /* Aumenta o tamanho da fonte para melhor legibilidade */
+  display: flex; /* Usando flexbox para melhor alinhamento */
+  align-items: center; /* Centraliza verticalmente */
 }
 
-/* Estilo dos rótulos e checkboxes */
+/* Estilo para checkboxes na lista de ingredientes */
+.ingredient-list label input[type="checkbox"] {
+  margin-right: 10px; /* Espaço entre o checkbox e o texto */
+  transform: scale(1); /* Aumenta o tamanho do checkbox */
+  cursor: pointer; /* Muda o cursor para indicar que é clicável */
+}
+
+/* ===========================
+   Estilo dos Rótulos e Checkboxes para Mobile
+   =========================== */
 label {
-  display: flex;
-  align-items: center;
-  font-size: 0.9rem;
-  color: #ffffff; /* Cor personalizada para o texto dos ingredientes */
-  margin-bottom: 5px; /* Espaço entre as opções de ingredientes */
+  display: flex; /* Flexbox para alinhamento */
+  align-items: center; /* Centraliza verticalmente */
+  font-size: 0.8rem; /* Aumenta o tamanho da fonte para melhor legibilidade */
+  color: #ffffff; /* Cor do texto */
+  margin-bottom: 10px; /* Espaçamento entre opções de ingredientes */
+  padding: 5px 0; /* Espaçamento interno para melhor toque em telas sensíveis ao toque */
 }
 
 label input[type="checkbox"] {
-  margin-right: 8px;
-  transform: scale(0.9);
+  margin-right: 10px; /* Aumenta o espaçamento entre checkbox e texto */
+  transform: scale(1.2); /* Aumenta o tamanho do checkbox para fácil toque */
+  cursor: pointer; /* Muda o cursor ao passar sobre o checkbox */
 }
 
+/* Estilo do checkbox com cor personalizada */
 input[type="checkbox"] {
-  accent-color: #ff6f61;
+  accent-color: #ff6f61; /* Cor personalizada para o checkbox */
+  width: 20px; /* Largura do checkbox */
+  height: 20px; /* Altura do checkbox */
 }
 
-/* Estilos dos botões de confirmação */
+/* Estilo para o estado de foco do checkbox */
+input[type="checkbox"]:focus {
+  outline: none; /* Remove o contorno padrão */
+  box-shadow: 0 0 0 3px rgba(255, 111, 97, 0.5); /* Adiciona um contorno visível ao foco */
+}
+
+/* ===========================
+   Estilos dos Botões de Enviar ao Carrinho
+   =========================== */
 button.submit {
-  background: radial-gradient(circle at 50% 50%, #ab0100, #a80100, #570101);
-  border: none;
-  color: #fff;
-  padding: 10px 20px;
-  font-size: 1rem;
-  border-radius: 30px;
-  cursor: pointer;
-  transition: background-color 0.3s ease;
-  margin-top: 20px;
-  width: 100%;
-}
-
-button.submit:hover {
-  background-color: #ff4c39;
-}
-
-/* Animação para o modal */
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(-10%);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-/* Estilos do modal do carrinho */
-#cartModal {
-  display: none;
-  position: fixed;
-  z-index: 1;
-  left: 0;
-  top: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.7); /* Fundo escuro mais futurista */
-  overflow: hidden;
-}
-
-/* Estilo futurista e neon para o conteúdo do modal do carrinho */
-#cartModal .modal-content {
   background: radial-gradient(
     circle at 50% 50%,
     #ab0100,
     #a80100,
     #570101
-  ); /* Fundo escuro para estilo futurista */
+  ); /* Fundo com gradiente radial */
+  border: none; /* Sem bordas */
+  color: #fff; /* Cor do texto */
+  padding: 12px 24px; /* Aumentar o padding para um botão mais "gordo" */
+  font-size: 1.1rem; /* Tamanho de fonte levemente maior */
+  border-radius: 30px; /* Bordas arredondadas */
+  cursor: pointer; /* Muda o cursor ao passar o mouse */
+  transition: background 0.3s ease, transform 0.2s ease; /* Transições suaves para fundo e transformação */
+  margin-top: 20px; /* Espaço acima do botão */
+  width: 100%; /* Largura total do contêiner */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3), 0 0 20px rgba(255, 0, 0, 0.6); /* Sombra com efeito neon */
+}
+
+/* Efeito de hover para o botão */
+button.submit:hover {
+  background: #ff4c39; /* Cor de fundo ao passar o mouse */
+  transform: scale(1.05); /* Aumenta levemente o tamanho do botão */
+}
+
+/* Efeito de foco para acessibilidade */
+button.submit:focus {
+  outline: none; /* Remove o contorno padrão */
+  box-shadow: 0 0 0 3px rgba(255, 76, 57, 0.5); /* Adiciona um contorno visível */
+}
+
+/* Animação para o modal */
+@keyframes fadeIn {
+  from {
+    opacity: 0; /* Começa invisível */
+    transform: translateY(-10%); /* Move para cima */
+  }
+  to {
+    opacity: 1; /* Totalmente visível */
+    transform: translateY(0); /* Retorna à posição original */
+  }
+}
+
+/* ===========================
+   Estilos do Modal do Carrinho
+   =========================== */
+#cartModal {
+  display: none; /* Oculto por padrão */
+  position: fixed;
+  z-index: 999; /* Acima de outros elementos */
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.85); /* Fundo escuro mais futurista */
+  overflow: hidden;
+
+  /* Efeitos de transição */
+  transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+
+#cartModal.show {
+  display: block; /* Exibe o modal */
+  opacity: 1; /* Totalmente visível */
+}
+
+#cartModal.hide {
+  opacity: 0; /* Invisível */
+  visibility: hidden; /* Oculta o espaço */
+}
+
+/* Efeito de desfoque no fundo */
+#cartModal:before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(255, 255, 255, 0.1),
+    rgba(0, 0, 0, 0.9)
+  );
+  z-index: -1; /* Abaixo do conteúdo do modal */
+}
+
+/* ===========================
+     Conteúdo do Modal
+     =========================== */
+#cartModal .modal-content {
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(171, 1, 0, 0.8),
+    rgba(168, 1, 0, 0.8),
+    rgba(87, 1, 1, 0.9)
+  ); /* Fundo escuro com transparência */
+
   margin: 5% auto;
-  padding: 20px;
-  border: 2px solid rgb(255, 255, 255); /* Borda neon */
+  padding: 25px; /* Aumentar o padding para mais espaço interno */
+  border: 2px solid rgba(255, 255, 255, 0.7); /* Borda neon com transparência */
   border-radius: 30px;
   width: 80%;
   max-height: 80vh;
   overflow-y: auto;
-  box-shadow: 0 0 20px rgb(255, 255, 255), 0 0 30px rgb(255, 255, 255),
-    0 0 40px #570101; /* Efeito de brilho neon */
 
-  /* Adicionando animação de fade-in */
-  animation: fadeIn 0.3s ease-out;
+  /* Sombras e animação */
+  box-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
+    0 0 30px rgba(255, 255, 255, 0.6), 0 0 40px rgba(87, 1, 1, 0.9); /* Brilho neon mais suave */
+  animation: fadeIn 0.3s ease-out; /* Animação de fade-in */
+
+  backdrop-filter: blur(10px); /* Efeito de desfoque no fundo */
 }
 
-/* Estilo para o título do modal do carrinho */
+/* Animação de fade-in */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+    transform: translateY(-10px); /* Movimento para baixo */
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0); /* Posição original */
+  }
+}
+
+/* ===========================
+     Título do Modal
+     =========================== */
 #cartModal h2 {
   font-size: 1.4rem;
   margin-bottom: 20px;
@@ -376,50 +566,83 @@ button.submit:hover {
   letter-spacing: 3px; /* Estilo futurista */
 }
 
-/* Estilo futurista para os itens do carrinho */
+/* ===========================
+     Estilos do Carrinho
+     =========================== */
 #cartItems {
   background-color: rgba(
     255,
     255,
     255,
-    0.1
-  ); /* Fundo neon levemente transparente */
-  border-radius: 15px;
-  padding: 20px;
-  margin-bottom: 20px;
-  color: rgb(255, 255, 255); /* Cor neon */
-  box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2); /* Sombra neon */
+    0.05
+  ); /* Fundo neon mais escuro e transparente */
+  border-radius: 20px; /* Bordas arredondadas */
+  padding: 30px; /* Aumentar o espaçamento interno */
+  margin-bottom: 25px; /* Espaço abaixo do contêiner */
+  color: rgb(255, 255, 255); /* Cor do texto */
+
+  /* Sombra aprimorada */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.5), 0 0 30px rgba(255, 0, 0, 0.8); /* Sombra com brilho neon */
+  transition: transform 0.3s ease; /* Transição suave para o hover */
 }
 
-/* Estilo futurista para os itens individuais do carrinho */
+#cartItems:hover {
+  transform: translateY(-5px); /* Eleva o contêiner ao passar o mouse */
+}
+
+/* ===========================
+     Itens Individuais do Carrinho
+     =========================== */
 .cart-item {
-  background-color: #570101;
-  border: 1px solid #ddd;
-  border-radius: 10px;
-  padding: 15px;
-  margin-bottom: 10px;
-  box-shadow: 0 4px 8px rgba(255, 244, 244, 0.1);
-  color: rgb(255, 255, 255); /* Cor neon */
+  background-color: #570101; /* Cor de fundo */
+  border: 1px solid rgba(255, 255, 255, 0.1); /* Borda sutil */
+  border-radius: 15px; /* Bordas arredondadas */
+  padding: 20px; /* Mais espaçamento interno */
+  margin-bottom: 15px; /* Espaço entre os itens */
+
+  /* Sombras aprimoradas */
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3), 0 0 30px rgba(255, 0, 0, 0.5);
+  color: #ffffff; /* Cor do texto */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Transições suaves */
 }
 
-/* Estilo futurista do botão de remover item do carrinho */
+.cart-item:hover {
+  transform: translateY(-5px); /* Eleva o item */
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4), 0 0 40px rgba(255, 0, 0, 0.7); /* Sombra mais intensa */
+}
+
+.cart-item h3 {
+  font-size: 1.2rem; /* Título destacado */
+  margin: 0 0 10px; /* Espaço abaixo do título */
+}
+
+.cart-item p {
+  font-size: 0.9rem; /* Texto menor e legível */
+  line-height: 2; /* Maior espaçamento entre linhas */
+}
+
+/* ===========================
+     Botão de Remover Item
+     =========================== */
 .cart-item .remove-button {
-  background-color: #ff0000;
-  /* Botão com cores neon */
+  background-color: #ff0000; /* Botão neon */
   border: none;
   color: #fff;
-  padding: 10px 20px;
+  padding: 5px 5px;
+  margin: 8%;
   font-size: 0.9rem;
-  border-radius: 100px;
+  border-radius: 50px;
   cursor: pointer;
   transition: background-color 0.3s ease;
 }
 
 .cart-item .remove-button:hover {
-  background-color: #000000; /* Cor neon mais clara ao passar o mouse */
+  background-color: #ffffff; /* Cor neon mais clara ao passar o mouse */
 }
 
-/* Estilo futurista para o botão "Enviar Pedidos" */
+/* ===========================
+     Botão "Enviar Pedidos"
+     =========================== */
 #cartModal #sendOrder {
   background: radial-gradient(circle at 50% 50%, #ab0100, #a80100, #570101);
   border: none;
@@ -428,7 +651,7 @@ button.submit:hover {
   font-size: 1rem;
   border-radius: 30px;
   cursor: pointer;
-  transition: all 0.3s ease; /* Transição suave para todas as propriedades */
+  transition: all 0.3s ease; /* Transição suave */
   margin-top: 35px;
   width: 100%;
   box-shadow: 0 4px 8px rgba(255, 255, 255, 0.2); /* Sombra inicial */
@@ -446,39 +669,13 @@ footer {
   left: 0;
   bottom: 0;
   width: 100%;
-  background: radial-gradient(
-    circle at 50% 50%,
-    #ab0100,
-    #a80100,
-    #570101
-  ); /* Cor de fundo do rodapé */
-  color: #fff; /* Cor do texto */
+  background: radial-gradient(circle at 50% 50%, #ab0100, #a80100, #570101);
+  color: #fff;
   text-align: center;
   padding: 2px;
-  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2); /* Sombra sutil */
-  font-size: 0.9rem; /* Tamanho da fonte */
-  z-index: 1000; /* Garante que o rodapé fique sobre o conteúdo */
-}
-
-/* Adiciona margem inferior para que o conteúdo não sobreponha o rodapé */
-body {
-  margin-bottom: 0px; /* Altura do rodapé + um pouco de espaço extra */
-}
-
-/* Estilo para os parágrafos no rodapé */
-footer p {
-  margin: 5px 0;
-}
-
-/* Estilo para os links no rodapé */
-footer a {
-  color: #fff;
-  text-decoration: none;
-  font-weight: bold;
-}
-
-footer a:hover {
-  text-decoration: underline;
+  box-shadow: 0 -2px 5px rgba(0, 0, 0, 0.2);
+  font-size: 0.9rem;
+  z-index: 1000;
 }
 
 /* Estilo para os campos de entrada de nome */
